@@ -1,0 +1,45 @@
+# Java中length，length()，size()的区别
+
+## 区别如下
+
+1，length: 是针对数组这个听来说的，如果写了一个数组，想要知道数组的长度，则可以使用这个属性；
+
+2，length(): 是针对字符串 String来说的，如果想看这个字符串的长度则用length()这个方法；
+
+3，size(): 是针对泛型集合来说的，如果想要知道 泛型集合中有多少元素，即可使用size()这个方法；
+
+**代码测试：**
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+import static jdk.internal.org.objectweb.asm.Type.getType;
+
+public class Test {
+    public static void main(String[] args) {
+        String[] str = {"jj","uu","0if"};// 数组 用length
+        System.out.println(str.length);//3
+
+        String  a ="hell word";// 字符串 用length() 获取字符串的长度
+        System.out.println(a.length());// 9 空格也算一个字符
+
+        List<String> list = new ArrayList<>();// 集合 用size()
+        list.add("242qr");// 添加的是一个元素
+        list.add("888");
+        System.out.println(list.size());// 2
+    }
+}
+// 1，注意j 要在for 循环外定义,2，substring(begin,end) begin包括，默认从0开始，end不包括
+public String equ(String s1, String s2){
+        int j;// 必须定义在外层 return 时 找不到变量类型
+        for( j = 0; j < Math.min(s1.length(),s2.length()); j++ ){
+            if(s1.charAt(j) != s2.charAt(j)) break;
+        }
+        return s1.substring(0,j);
+    }
+
+```
+
+
+
